@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#0E2455">
 <meta property="og:title" content="Gifted by Grace Learning Haven, Inc.">
 <meta property="og:description" content="Faith-based, culturally grounded homeschool support for families of gifted learners.">
-<meta property="og:image" content="https://giftedbygracelearninghaven.org/images/hero.jpg">
+<meta property="og:image" content="images/hero.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -196,15 +196,9 @@
   .donate-inner{text-align:center;max-width:860px;margin:0 auto}
   .donate-inner h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:16px}
   .donate-inner>p{color:#C3D3E2;font-size:1.1rem;margin-bottom:36px}
-  .amounts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
-  .amt{
-    background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.3);border-radius:6px;
-    padding:20px 26px;min-width:150px;transition:.22s;display:block;color:#fff;
-  }
-  .amt:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-4px)}
-  .amt b{display:block;font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:4px;color:#fff}
-  .amt span{font-size:.85rem;color:#C3D3E2;line-height:1.4;display:block}
-  .amt:hover span{color:#FFF6E4}
+  .impact-list{display:flex;gap:10px 30px;justify-content:center;flex-wrap:wrap;margin:36px 0 6px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+  .impact-list span{font-size:.92rem;color:#EAF0F6;font-weight:600}
+  .impact-list em{font-style:normal;font-weight:400;color:#9FB6CB;margin-left:4px}
   .tax-note{font-size:.9rem;color:#9FB6CB;margin-top:26px;line-height:1.6}
 
   /* ---------- CONTACT ---------- */
@@ -260,6 +254,12 @@
     .stats{gap:22px}
   }
 </style>
+<style>
+.ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
+.ha-img-placeholder.ha-failed{animation:none;opacity:.7}
+@keyframes ha-img-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(prefers-color-scheme:dark){.ha-img-placeholder{background:#27272a;border-color:#3f3f46;color:#a1a1aa}}
+</style>
 </head>
 <body>
 
@@ -284,7 +284,7 @@
 <!-- ================= HERO ================= -->
 <div class="hero" id="top">
   <div>
-    <span class="eyebrow">A 501(c)(3) Nonprofit Ministry</span>
+    <span class="eyebrow">A Nonprofit Ministry</span>
     <h1>Gifted by Grace Learning Haven</h1>
     <p class="tag">Empowering families with faith-based, culturally grounded homeschool excellence — so every gifted learner is seen, challenged, and cherished.</p>
     <div class="hero-cta">
@@ -496,17 +496,17 @@
     <div class="rule"></div>
     <span class="eyebrow">Support Our Mission</span>
     <h2>Your gift sends a gifted child the support they deserve.</h2>
-    <p>Gifted by Grace Learning Haven is a nonprofit. Every donation directly funds subsidized memberships, free consultations, and curriculum access for families who could not otherwise afford them.</p>
+    <p>Gifted by Grace Learning Haven is a nonprofit. Every gift — of any size — helps fund subsidized memberships, free consultations, and curriculum access for families who could not otherwise afford them.</p>
 
-    <div class="amounts">
-      <!-- REPLACE each href with your donation platform link (Zeffy / Givebutter / PayPal / Stripe) -->
-      <a href="#" class="amt" data-setup="donate-25"><b>$25</b><span>Curriculum reviews for one family</span></a>
-      <a href="#" class="amt" data-setup="donate-75"><b>$75</b><span>One month of community access</span></a>
-      <a href="#" class="amt" data-setup="donate-150"><b>$150</b><span>A full consultation session</span></a>
-      <a href="#" class="amt" data-setup="donate-custom"><b>Other</b><span>Give any amount you choose</span></a>
+    <a href="#" class="btn btn-gold" style="padding:18px 52px;font-size:1.12rem;margin-top:10px" data-donate-link data-setup="donate-main">Give Any Amount</a>
+
+    <p style="color:#9FB6CB;font-size:.92rem;margin-top:16px">You choose the amount on the next page — there's no minimum, and every gift matters.</p>
+
+    <div class="impact-list">
+      <span>$25 <em>covers curriculum reviews for one family</em></span>
+      <span>$75 <em>funds a month of community access</em></span>
+      <span>$150 <em>provides a full consultation session</em></span>
     </div>
-
-    <a href="#" class="btn btn-gold" style="padding:16px 46px;font-size:1.05rem" data-setup="donate-main">Give Now</a>
 
     <p class="tax-note">
       Gifted by Grace Learning Haven, Inc. is a registered nonprofit organization.<br>
@@ -514,6 +514,25 @@
     </p>
   </div>
 </section>
+
+<script>
+// ============================================================
+// DONATION LINK — set this ONE line once your Zeffy (or other)
+// donation form is ready. All 5 donate buttons ($25/$75/$150/Other/Give Now)
+// update automatically from this single value.
+// Example: "https://www.zeffy.com/en-US/donation-form/your-form-id"
+// ============================================================
+var DONATION_LINK = "https://www.zeffy.com/en-US/donation-form/support-gifted-by-grace-learning-haven"; // Zeffy donation form
+document.addEventListener('DOMContentLoaded', function () {
+  if (DONATION_LINK && DONATION_LINK !== "#") {
+    document.querySelectorAll('[data-donate-link]').forEach(function (el) {
+      el.setAttribute('href', DONATION_LINK);
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener');
+    });
+  }
+});
+</script>
 
 <!-- ================= CONTACT ================= -->
 <section id="contact">
@@ -527,19 +546,23 @@
 
     <div class="contact-grid">
       <div>
-        <!-- Connect this form to your form handler (Formspree, Netlify Forms, or your WordPress form) -->
-        <form data-setup="contact-form" onsubmit="event.preventDefault();alert('Connect this form to your form handler to receive messages.');">
+        <!-- Contact form wired to Netlify Forms. Works automatically once this site is deployed on Netlify — no extra sign-up needed. Submissions appear in Netlify > Site > Forms, and you can turn on email notifications there. -->
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm" data-setup="contact-form">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="position:absolute;left:-9999px" aria-hidden="true">
+            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+          </p>
           <div class="field">
             <label for="name">Name *</label>
-            <input id="name" type="text" placeholder="Enter your first name" required>
+            <input id="name" name="name" type="text" placeholder="Enter your first name" required>
           </div>
           <div class="field">
             <label for="email">Email *</label>
-            <input id="email" type="email" placeholder="Email address" required>
+            <input id="email" name="email" type="email" placeholder="Email address" required>
           </div>
           <div class="field">
             <label for="topic">What can we help with?</label>
-            <select id="topic">
+            <select id="topic" name="topic">
               <option>The Homeschool Matchmaker Masterclass</option>
               <option>Community &amp; Membership</option>
               <option>Coaching &amp; Consultation</option>
@@ -551,10 +574,37 @@
           </div>
           <div class="field">
             <label for="msg">Message *</label>
-            <textarea id="msg" placeholder="Tell us a little about your family and what you're looking for..." required></textarea>
+            <textarea id="msg" name="message" placeholder="Tell us a little about your family and what you're looking for..." required></textarea>
           </div>
           <button type="submit" class="btn btn-navy" style="width:100%">Submit</button>
+          <p id="formSuccess" style="display:none;margin-top:16px;padding:14px 16px;background:var(--sage);border-radius:4px;color:var(--navy);font-weight:600;text-align:center">Thank you — your message has been sent. We'll be in touch soon.</p>
+          <p id="formError" style="display:none;margin-top:16px;padding:14px 16px;background:#FDECEC;border-radius:4px;color:#8A2E2E;text-align:center">Something went wrong sending your message. Please email us directly at <a href="mailto:info@giftedbygracelearninghaven.org" style="color:#8A2E2E;text-decoration:underline">info@giftedbygracelearninghaven.org</a>.</p>
         </form>
+        <script>
+        (function(){
+          var form = document.getElementById('contactForm');
+          if(!form) return;
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            var successEl = document.getElementById('formSuccess');
+            var errorEl = document.getElementById('formError');
+            errorEl.style.display = 'none';
+            var data = new FormData(form);
+            fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(data).toString()
+            }).then(function(res){
+              if(!res.ok) throw new Error('Form submission failed');
+              form.reset();
+              form.querySelectorAll('.field, button[type=submit]').forEach(function(el){ el.style.display = 'none'; });
+              successEl.style.display = 'block';
+            }).catch(function(){
+              errorEl.style.display = 'block';
+            });
+          });
+        })();
+        </script>
       </div>
 
       <div>
@@ -615,5 +665,71 @@
   </div>
 </footer>
 
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && window.parent !== window) {
+    window.parent.postMessage({ type: 'close-fullscreen' }, '*');
+  }
+});
+</script>
+<!-- broken-img-handler -->
+<script>
+(function(){
+  if(window.__brokenImgHandler)return;
+  window.__brokenImgHandler=true;
+  var MAX=5,DELAYS=[2000,4000,8000,16000,32000];
+  document.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    var liveSrc=img.getAttribute('src');
+    var src=img.dataset.haOriginalSrc||liveSrc;
+    if(!src)return;
+    if(img.dataset.haOriginalSrc&&liveSrc&&liveSrc!==img.dataset.haOriginalSrc&&liveSrc.indexOf('_r=')<0){src=liveSrc;img.dataset.haOriginalSrc=src;img.dataset.haRetryCount='0'}
+    else if(!img.dataset.haOriginalSrc){img.dataset.haOriginalSrc=src}
+    var attempt=parseInt(img.dataset.haRetryCount||'0',10);
+    if(img.dataset.haPhId){var old=document.getElementById(img.dataset.haPhId);if(old)old.remove()}
+    var ph=document.createElement('div');
+    ph.className='ha-img-placeholder'+(attempt>=MAX?' ha-failed':'');
+    ph.id='ha-ph-'+Math.random().toString(36).slice(2,9);
+    var w=img.getAttribute('width');var h=img.getAttribute('height');
+    if(w)ph.style.width=w+(isNaN(Number(w))?'':'px');
+    else if(img.style.width)ph.style.width=img.style.width;
+    else if(img.width>1)ph.style.width=img.width+'px';
+    if(h)ph.style.height=h+(isNaN(Number(h))?'':'px');
+    else if(img.style.height)ph.style.height=img.style.height;
+    else if(img.height>1)ph.style.height=img.height+'px';
+    ph.textContent=attempt>=MAX?'Image unavailable':'Loading image\u2026';
+    img.dataset.haPhId=ph.id;
+    if(img.dataset.haOrigDisplay==null)img.dataset.haOrigDisplay=img.style.display||'';
+    img.style.display='none';
+    img.insertAdjacentElement('afterend',ph);
+    if(attempt<MAX){
+      img.dataset.haRetryCount=String(attempt+1);
+      setTimeout(function(){
+        if(!img.isConnected)return;
+        if(img.dataset.haOriginalSrc!==src)return;
+        if(img.complete&&img.naturalWidth>0)return;
+        var curSrc=img.getAttribute('src');
+        if(curSrc&&curSrc.indexOf(src)!==0)return;
+        var fresh=src+(src.indexOf('?')>=0?'&':'?')+'_r='+(attempt+1)+'_'+Date.now();
+        img.src=fresh;
+      },DELAYS[attempt]);
+    }
+  },true);
+  document.addEventListener('load',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    if(img.dataset.haPhId){
+      var ph=document.getElementById(img.dataset.haPhId);
+      if(ph)ph.remove();
+      delete img.dataset.haPhId;
+      img.style.display=img.dataset.haOrigDisplay||'';
+      delete img.dataset.haOrigDisplay;
+      delete img.dataset.haOriginalSrc;
+      delete img.dataset.haRetryCount;
+    }
+  },true);
+})();
+</script>
 </body>
 </html>
