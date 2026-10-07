@@ -32,3 +32,10 @@
 .founder-photo figcaption span{font-family:system-ui,sans-serif;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#8A6A22;font-weight:700}
 .founder-text h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;margin-top:0}
 @media(max-width:850px){.detail.founder{grid-template-columns:1fr;gap:28px}.founder-photo{position:static;max-width:340px;margin:0 auto}}
+
+/* Give button */
+.links{align-items:center}
+.links a.give-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--deep);font-weight:700;letter-spacing:.04em;padding:10px 22px;border-radius:999px;box-shadow:0 4px 14px rgba(195,154,62,.45);transition:background .2s,transform .2s,box-shadow .2s}
+.links a.give-btn svg{width:17px;height:17px;fill:currentColor}
+.links a.give-btn:hover{background:var(--navy);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(195,154,62,.5)}
+@media (prefers-reduced-motion:reduce){.links a.give-btn:hover{transform:none}}
