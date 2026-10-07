@@ -41,3 +41,4 @@
 @media (prefers-reduced-motion:reduce){.links a.give-btn:hover{transform:none}}
 
 .scripture{margin:28px auto;max-width:640px;text-align:center;border:0;padding:0}.scripture p{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.45rem;line-height:1.4;color:var(--navy);margin:0 0 6px}.scripture cite{font-style:normal;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#8A6A22;font-weight:700}
+.give-now{text-align:center;margin:8px 0 36px}.give-now p{margin:0 0 12px}
